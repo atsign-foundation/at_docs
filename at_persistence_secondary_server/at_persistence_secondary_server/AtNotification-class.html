@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the AtNotification class from the at_persistence_secondary_server library, for the Dart programming language.">
+  <title>AtNotification class - at_persistence_secondary_server library - Dart API</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">at_persistence_secondary_server</a></li>
+    <li><a href="../at_persistence_secondary_server/at_persistence_secondary_server-library.html">at_persistence_secondary_server</a></li>
+    <li class="self-crumb">AtNotification class</li>
+  </ol>
+  <div class="self-name">AtNotification</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../index.html">at_persistence_secondary_server</a></li>
+      <li><a href="../at_persistence_secondary_server/at_persistence_secondary_server-library.html">at_persistence_secondary_server</a></li>
+      <li class="self-crumb">AtNotification class</li>
+    </ol>
+    
+    <h5>at_persistence_secondary_server library</h5>
+    <ol>
+      <li class="section-title"><a href="../at_persistence_secondary_server/at_persistence_secondary_server-library.html#classes">Classes</a></li>
+      <li><a href="../at_persistence_secondary_server/AccessLogKeyStore-class.html">AccessLogKeyStore</a></li>
+      <li><a href="../at_persistence_secondary_server/AtAccessLog-class.html">AtAccessLog</a></li>
+      <li><a href="../at_persistence_secondary_server/AtCommitLog-class.html">AtCommitLog</a></li>
+      <li><a href="../at_persistence_secondary_server/AtCompactionJob-class.html">AtCompactionJob</a></li>
+      <li><a href="../at_persistence_secondary_server/AtCompactionStrategy-class.html">AtCompactionStrategy</a></li>
+      <li><a href="../at_persistence_secondary_server/AtConfig-class.html">AtConfig</a></li>
+      <li><a href="../at_persistence_secondary_server/AtData-class.html">AtData</a></li>
+      <li><a href="../at_persistence_secondary_server/AtDataAdapter-class.html">AtDataAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/AtLogType-class.html">AtLogType</a></li>
+      <li><a href="../at_persistence_secondary_server/AtMetaData-class.html">AtMetaData</a></li>
+      <li><a href="../at_persistence_secondary_server/AtMetaDataAdapter-class.html">AtMetaDataAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/AtMetadataBuilder-class.html">AtMetadataBuilder</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification-class.html">AtNotification</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotificationAdapter-class.html">AtNotificationAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotificationKeystore-class.html">AtNotificationKeystore</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotificationLog-class.html">AtNotificationLog</a></li>
+      <li><a href="../at_persistence_secondary_server/CommitEntry-class.html">CommitEntry</a></li>
+      <li><a href="../at_persistence_secondary_server/CommitEntryAdapter-class.html">CommitEntryAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/CommitLogKeyStore-class.html">CommitLogKeyStore</a></li>
+      <li><a href="../at_persistence_secondary_server/CommitOpAdapter-class.html">CommitOpAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/HivePersistenceManager-class.html">HivePersistenceManager</a></li>
+      <li><a href="../at_persistence_secondary_server/Keystore-class.html">Keystore</a></li>
+      <li><a href="../at_persistence_secondary_server/KeystoreManager-class.html">KeystoreManager</a></li>
+      <li><a href="../at_persistence_secondary_server/LogKeyStore-class.html">LogKeyStore</a></li>
+      <li><a href="../at_persistence_secondary_server/NotificationEntry-class.html">NotificationEntry</a></li>
+      <li><a href="../at_persistence_secondary_server/NotificationEntryAdapter-class.html">NotificationEntryAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/NotificationEntryMeta-class.html">NotificationEntryMeta</a></li>
+      <li><a href="../at_persistence_secondary_server/NotificationFunction-class.html">NotificationFunction</a></li>
+      <li><a href="../at_persistence_secondary_server/NotificationTypeAdapter-class.html">NotificationTypeAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/OperationTypeAdapter-class.html">OperationTypeAdapter</a></li>
+      <li><a href="../at_persistence_secondary_server/SecondaryKeyStore-class.html">SecondaryKeyStore</a></li>
+      <li><a href="../at_persistence_secondary_server/SecondaryKeyStoreManager-class.html">SecondaryKeyStoreManager</a></li>
+      <li><a href="../at_persistence_secondary_server/SynchronizableKeyStore-class.html">SynchronizableKeyStore</a></li>
+      <li><a href="../at_persistence_secondary_server/WritableKeystore-class.html">WritableKeystore</a></li>
+    
+      <li class="section-title"><a href="../at_persistence_secondary_server/at_persistence_secondary_server-library.html#extension">Extensions</a></li>
+      <li><a href="../at_persistence_secondary_server/CommitOpSymbols.html">CommitOpSymbols</a></li>
+    
+    
+    
+    
+      <li class="section-title"><a href="../at_persistence_secondary_server/at_persistence_secondary_server-library.html#functions">Functions</a></li>
+      <li><a href="../at_persistence_secondary_server/AtMetadataAdapter.html">AtMetadataAdapter</a></li>
+    
+      <li class="section-title"><a href="../at_persistence_secondary_server/at_persistence_secondary_server-library.html#enums">Enums</a></li>
+      <li><a href="../at_persistence_secondary_server/CommitOp-class.html">CommitOp</a></li>
+      <li><a href="../at_persistence_secondary_server/NotificationType-class.html">NotificationType</a></li>
+      <li><a href="../at_persistence_secondary_server/OperationType-class.html">OperationType</a></li>
+      <li><a href="../at_persistence_secondary_server/StoreType-class.html">StoreType</a></li>
+    
+    
+      <li class="section-title"><a href="../at_persistence_secondary_server/at_persistence_secondary_server-library.html#exceptions">Exceptions</a></li>
+      <li><a href="../at_persistence_secondary_server/DataStoreException-class.html">DataStoreException</a></li>
+    </ol>
+  </div>
+
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1><span class="kind-class">AtNotification</span> class  </h1></div>
+
+    
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="AtNotification" class="callable">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/AtNotification.html">AtNotification</a></span><span class="signature">(<span class="parameter" id="-param-_id"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">_id</span>, </span><span class="parameter" id="-param-_fromAtSign"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">_fromAtSign</span>, </span><span class="parameter" id="-param-_notificationDateTime"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">_notificationDateTime</span>, </span><span class="parameter" id="-param-_toAtSign"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">_toAtSign</span>, </span><span class="parameter" id="-param-_notification"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">_notification</span>, </span><span class="parameter" id="-param-_type"><span class="type-annotation"><a href="../at_persistence_secondary_server/NotificationType-class.html">NotificationType</a></span> <span class="parameter-name">_type</span>, </span><span class="parameter" id="-param-_opType"><span class="type-annotation"><a href="../at_persistence_secondary_server/OperationType-class.html">OperationType</a></span> <span class="parameter-name">_opType</span>, </span><span class="parameter" id="-param-_expiresAt">[<span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">_expiresAt</span>]</span>)</span>
+        </dt>
+        <dd>
+           
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="atValue" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/atValue.html">atValue</a></span>
+          <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="expiresAt" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/expiresAt.html">expiresAt</a></span>
+          <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.10.2/dart-core/DateTime-class.html">DateTime</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="fromAtSign" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/fromAtSign.html">fromAtSign</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read-only</div>
+</dd>
+        <dt id="hashCode" class="property inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.10.2/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd class="inherited">
+          The hash code for this object. <a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/hashCode.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="id" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/id.html">id</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read-only</div>
+</dd>
+        <dt id="notification" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/notification.html">notification</a></span>
+          <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="notificationDateTime" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/notificationDateTime.html">notificationDateTime</a></span>
+          <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.10.2/dart-core/DateTime-class.html">DateTime</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="opType" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/opType.html">opType</a></span>
+          <span class="signature">&#8596; <a href="../at_persistence_secondary_server/OperationType-class.html">OperationType</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.10.2/dart-core/Type-class.html">Type</a></span>         
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="toAtSign" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/toAtSign.html">toAtSign</a></span>
+          <span class="signature">&#8596; <a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+        <dt id="type" class="property">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/type.html">type</a></span>
+          <span class="signature">&#8596; <a href="../at_persistence_secondary_server/NotificationType-class.html">NotificationType</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">read / write</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/noSuchMethod.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="toJson" class="callable">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/toJson.html">toJson</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.10.2/dart-core/Map-class.html">Map</a></span>
+          </span>
+                  </dt>
+        <dd>
+           
+                  
+</dd>
+        <dt id="toString" class="callable">
+          <span class="name"><a href="../at_persistence_secondary_server/AtNotification/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.10.2/dart-core/String-class.html">String</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Returns a string representation of this object. 
+                  <div class="features">override</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.10.2/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          The equality operator. <a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/operator_equals.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+    <ol>
+    
+      <li class="section-title"><a href="../at_persistence_secondary_server/AtNotification-class.html#constructors">Constructors</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/AtNotification.html">AtNotification</a></li>
+    
+      <li class="section-title">
+        <a href="../at_persistence_secondary_server/AtNotification-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/atValue.html">atValue</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/expiresAt.html">expiresAt</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/fromAtSign.html">fromAtSign</a></li>
+      <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/hashCode.html">hashCode</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/id.html">id</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/notification.html">notification</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/notificationDateTime.html">notificationDateTime</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/opType.html">opType</a></li>
+      <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/runtimeType.html">runtimeType</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/toAtSign.html">toAtSign</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/type.html">type</a></li>
+    
+      <li class="section-title"><a href="../at_persistence_secondary_server/AtNotification-class.html#instance-methods">Methods</a></li>
+      <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/toJson.html">toJson</a></li>
+      <li><a href="../at_persistence_secondary_server/AtNotification/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="../at_persistence_secondary_server/AtNotification-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    at_persistence_secondary_server
+      1.0.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static-assets/typeahead.bundle.min.js"></script>
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/URI.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+</body>
+
+</html>
