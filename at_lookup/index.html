@@ -55,10 +55,10 @@
 
   <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
       <section class="desc markdown">
-        <p><img src="../.github/@developersmall.png" alt="image alt <"> </p>
-<h3 id="now-for-a-little-internet-optimism">Now for a little internet optimism</h3>
-<h1 id="at_lookup">at_lookup</h1>
-<p>A library for Dart developers.</p>
+        <img src="https://atsign.dev/assets/img/@developersmall.png?sanitize=true">
+### Now for a little internet optimism
+<h1 id="at_lookup-library">at_lookup library</h1>
+<p>The AtLookup Library is the low-level direct implementation of the @protocol verbs</p>
 <h2 id="installation">Installation:</h2>
 <p>To use this library in your app, first add it to your pubspec.yaml</p>
 <pre class="language-dart"><code>dependencies:
@@ -71,24 +71,32 @@
 <pre class="language-dart"><code>import 'package:at_lookup/at_lookup.dart';
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre class="language-dart"><code>var atLookUpImpl = AtLookupImpl('@alice', 'root.atsign.com',
-    64, privateKey, cramSecret,);
+<pre class="language-dart"><code>var atLookUpImpl = AtLookupImpl(
+    '@alice',
+    'root.atsign.com',
+    64,
+    privateKey: 'privateKey',
+    cramSecret: 'cramSecret',
+  );
 
-var key = 'test_key';
-var sharedBy = '@alice';
-var sharedWith = '@bob';
-var result = await atLookUpImpl.update(key, value, sharedWith, metadata);
+  var key = 'test_key';
+  var sharedBy = '@alice';
+  var sharedWith = '@bob';
+  var result =
+      await atLookUpImpl.update(key, 'test_value', sharedWith: sharedWith);
 // lookup
-var lookup_result = await atLookUpImpl.lookup(key, sharedBy);
+  var lookup_result = await atLookUpImpl.lookup(key, sharedBy);
 // plookup
-var plookup_result = await atLookUpImpl.plookup(key, sharedBy);
-// llookup	
-var llookup_result = await atLookUpImpl.llookup(key, sharedBy, sharedWith, isPublic);
+  var plookup_result = await atLookUpImpl.plookup(key, sharedBy);
+// llookup
+  var llookup_result = await atLookUpImpl.llookup(key,
+      sharedBy: sharedBy, sharedWith: sharedWith, isPublic: true);
 // delete
-var delete_result = await atLookUpImpl.delete(key, sharedWith, isPublic);
+  var delete_result =
+      await atLookUpImpl.delete(key, sharedWith: '@bob', isPublic: false);
 // scan
-var scan_result_list = await atLookUpImpl.scan(regex, sharedBy);
-var executeVerb_result = await atLookUpImpl.executeVerb(verbBuilder, sync);
+  var scan_result_list =
+      await atLookUpImpl.scan(regex: '*', sharedBy: '@alice');
 </code></pre>
       </section>
       

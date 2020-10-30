@@ -111,7 +111,7 @@
       <p>Removes the mapping for a key from this key store if it is present</p>
 <p>@param key - Key associated with a value.
 @return - sequence number from commit log if remove is success. null otherwise
-Throws an <a href="../../at_persistence_secondary_server/DataStoreException-class.html">DataStoreException</a> if the the operation fails due to some issue with the data store.</p>
+Throws an <a href="https://pub.dev/documentation/at_persistence_spec/1.0.1/at_persistence_spec/DataStoreException-class.html">DataStoreException</a> if the the operation fails due to some issue with the data store.</p>
     </section>
     
     <section class="summary source-code" id="source">
@@ -121,7 +121,8 @@ Future remove(int key) async {
   try {
     await box.delete(key);
   } on Exception catch (e) {
-    throw DataStoreException(&#39;Exception deleting access log entry:${e.toString()}&#39;);
+    throw DataStoreException(
+        &#39;Exception deleting access log entry:${e.toString()}&#39;);
   } on HiveError catch (e) {
     throw DataStoreException(
         &#39;Hive error deleting entry from access log:${e.toString()}&#39;);
@@ -139,7 +140,7 @@ Future remove(int key) async {
 <footer>
   <span class="no-break">
     at_persistence_secondary_server
-      1.0.0
+      1.0.1
   </span>
 
 </footer>
