@@ -121,7 +121,8 @@ Future&lt;AccessLogEntry&gt; get(int key) async {
     var accessLogEntry = await box.get(key);
     return accessLogEntry;
   } on Exception catch (e) {
-    throw DataStoreException(&#39;Exception get access log entry:${e.toString()}&#39;);
+    throw DataStoreException(
+        &#39;Exception get access log entry:${e.toString()}&#39;);
   } on HiveError catch (e) {
     throw DataStoreException(
         &#39;Hive error getting entry from access log:${e.toString()}&#39;);
@@ -139,7 +140,7 @@ Future&lt;AccessLogEntry&gt; get(int key) async {
 <footer>
   <span class="no-break">
     at_persistence_secondary_server
-      1.0.0
+      1.0.1
   </span>
 
 </footer>
