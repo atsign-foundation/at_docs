@@ -128,10 +128,10 @@
   var fileLength = valueObject.split(&#39;:&#39;)[2];
   var atKey = notificationKey.split(&#39;:&#39;)[1];
   var fromAtSign = responseJson[&#39;from&#39;];
-
+  fileName = utf8.decode(base64.decode(fileName));
   atKey = atKey.replaceFirst(fromAtSign, &#39;&#39;);
   atKey = atKey.trim();
-  print(&#39;atKey: ${atKey}&#39;);
+
   if (atKey == &#39;stream_id&#39;) {
     &#47;&#47; send in-app notification to receiver
     bool userResponse = await acceptStream(fromAtSign, fileName, fileLength);

@@ -91,7 +91,7 @@
       <div><h1><span class="kind-method">monitor</span> method </h1></div>
 
     <section class="multi-line-signature">
-      <span class="returntype">void</span>
+      <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">OutboundConnection</span>&gt;</span></span>
             <span class="name ">monitor</span>
 (<wbr><ol class="parameter-list"><li><span class="parameter" id="monitor-param-command"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">command</span>, </span></li>
 <li><span class="parameter" id="monitor-param-monitorResponseCallback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a></span> <span class="parameter-name">monitorResponseCallback</span>, </span></li>
@@ -106,9 +106,12 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">void monitor(String command, Function monitorResponseCallback,
-    String privateKey, Function acceptStream) async {
-  await MonitorClient(privateKey).executeMonitorVerb(
+      <pre class="language-dart"><code class="language-dart">Future&lt;OutboundConnection&gt; monitor(
+    String command,
+    Function monitorResponseCallback,
+    String privateKey,
+    Function acceptStream) {
+  return MonitorClient(privateKey).executeMonitorVerb(
       command, _atSign, _preference.rootDomain, _preference.rootPort,
       (value) {
     monitorResponseCallback(value, acceptStream);
