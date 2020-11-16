@@ -96,6 +96,7 @@
             <span class="name ">performInitialAuth</span>
 (<wbr><ol class="parameter-list"><li><span class="parameter" id="performInitialAuth-param-atSign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">atSign</span>, </span></li>
 <li><span class="parameter" id="performInitialAuth-param-cramSecret">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">cramSecret</span>, </span></li>
+<li><span class="parameter" id="performInitialAuth-param-status"><span class="type-annotation">KeyRestoreStatus</span> <span class="parameter-name">status</span>, </span></li>
 <li><span class="parameter" id="performInitialAuth-param-pkamPrivateKey"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">pkamPrivateKey</span>}</span></li>
 </ol>)
       <div class="features">override</div>
@@ -105,7 +106,9 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">@override
 Future&lt;bool&gt; performInitialAuth(String atSign,
-    {String cramSecret, String pkamPrivateKey}) async {
+    {String cramSecret,
+    KeyRestoreStatus status,
+    String pkamPrivateKey}) async {
   &#47;&#47; get existing keys from keychain
   var publicKey =
       await _keyChainManager.getValue(atSign, KEYCHAIN_PKAM_PUBLIC_KEY);
@@ -113,7 +116,10 @@ Future&lt;bool&gt; performInitialAuth(String atSign,
       await _keyChainManager.getValue(atSign, KEYCHAIN_PKAM_PRIVATE_KEY);
   var encryptionPrivateKey = await _keyChainManager.getValue(
       atSign, KEYCHAIN_ENCRYPTION_PRIVATE_KEY);
-  if ((privateKey == null || privateKey == &#39;&#39;) &amp;&amp; cramSecret != null) {
+  if ((privateKey == null ||
+          privateKey == &#39;&#39; ||
+          status == KeyRestoreStatus.ACTIVATE) &amp;&amp;
+      cramSecret != null) {
     logger.finer(&#39;private key is empty. Performing cram&#39;);
     var cram_result = await atLookUp.authenticate_cram(cramSecret);
     if (!cram_result) {
@@ -123,7 +129,7 @@ Future&lt;bool&gt; performInitialAuth(String atSign,
 
     if (!_pkamAuthenticated) {
       &#47;&#47; Generate keypair if not already generated
-      if (privateKey == null || privateKey == &#39;&#39;) {
+      if (privateKey == null || privateKey.isEmpty) {
         logger.finer(&#39;generating pkam key pair&#39;);
         keypair = _keyChainManager.generateKeyPair();
         privateKey = keypair.privateKey.toString();
@@ -141,7 +147,6 @@ Future&lt;bool&gt; performInitialAuth(String atSign,
       return true; &#47;&#47;Auth already performed
     }
   }
-  logger.finer(&#39;pkam private key: $privateKey&#39;);
   var pkam_auth_result = await atLookUp.authenticate(privateKey);
 
   if (pkam_auth_result) {
@@ -163,15 +168,30 @@ Future&lt;bool&gt; performInitialAuth(String atSign,
         await _keyChainManager.putValue(
             atSign, KEYCHAIN_ENCRYPTION_PUBLIC_KEY, encryptionPubKey);
         var aesSharedKey = EncryptionUtil.generateAESKey();
-        await _keyChainManager.putValue(atSign, KEYCHAIN_AES_KEY, aesSharedKey);
-        var encryptedPkamPublicKey = await EncryptionUtil.encryptValue(publicKey, aesSharedKey);
-        await _keyChainManager.putValue(atSign, KEYCHAIN_AES_PKAM_PUBLIC_KEY, encryptedPkamPublicKey);
-        var encryptedPkamPrivateKey = await EncryptionUtil.encryptValue(privateKey, aesSharedKey);
-        await _keyChainManager.putValue(atSign, KEYCHAIN_AES_PKAM_PRIVATE_KEY, encryptedPkamPrivateKey);
-        var encryptedDataEncryptionPublicKey = await EncryptionUtil.encryptValue(encryptionKeyPair.publicKey.toString(), aesSharedKey);
-        await _keyChainManager.putValue(atSign, KEYCHAIN_AES_ENCRYPTION_PUBLIC_KEY, encryptedDataEncryptionPublicKey);
-        var encryptedDataEncryptionPrivateKey = await EncryptionUtil.encryptValue(encryptionKeyPair.privateKey.toString(), aesSharedKey);
-        await _keyChainManager.putValue(atSign, KEYCHAIN_AES_ENCRYPTION_PRIVATE_KEY, encryptedDataEncryptionPrivateKey);
+        await _keyChainManager.putValue(
+            atSign, KEYCHAIN_AES_KEY, aesSharedKey);
+        var encryptedPkamPublicKey =
+            await EncryptionUtil.encryptValue(publicKey, aesSharedKey);
+        await _keyChainManager.putValue(
+            atSign, KEYCHAIN_AES_PKAM_PUBLIC_KEY, encryptedPkamPublicKey);
+        var encryptedPkamPrivateKey =
+            await EncryptionUtil.encryptValue(privateKey, aesSharedKey);
+        await _keyChainManager.putValue(
+            atSign, KEYCHAIN_AES_PKAM_PRIVATE_KEY, encryptedPkamPrivateKey);
+        var encryptedDataEncryptionPublicKey =
+            await EncryptionUtil.encryptValue(
+                encryptionKeyPair.publicKey.toString(), aesSharedKey);
+        await _keyChainManager.putValue(
+            atSign,
+            KEYCHAIN_AES_ENCRYPTION_PUBLIC_KEY,
+            encryptedDataEncryptionPublicKey);
+        var encryptedDataEncryptionPrivateKey =
+            await EncryptionUtil.encryptValue(
+                encryptionKeyPair.privateKey.toString(), aesSharedKey);
+        await _keyChainManager.putValue(
+            atSign,
+            KEYCHAIN_AES_ENCRYPTION_PRIVATE_KEY,
+            encryptedDataEncryptionPrivateKey);
       }
 
       var deleteBuilder = DeleteVerbBuilder()..atKey = AT_CRAM_SECRET;

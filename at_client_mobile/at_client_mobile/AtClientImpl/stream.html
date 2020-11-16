@@ -123,15 +123,17 @@
   var file = File(filePath);
   var data = file.readAsBytesSync();
   var fileName = basename(filePath);
+  fileName = base64.encode(utf8.encode(fileName));
   var command =
       &#39;stream:init${sharedWith} ${streamId} ${fileName} ${data.length}\n&#39;;
+  logger.finer(&#39;sending stream init:${command}&#39;);
   var remoteSecondary = RemoteSecondary(currentAtSign, _preference);
   var result = await remoteSecondary.executeCommand(command, auth: true);
-  logger.info(&#39;ack message:${result}&#39;);
+  logger.finer(&#39;ack message:${result}&#39;);
   if (result != null &amp;&amp; result.startsWith(&#39;stream:ack&#39;)) {
     result = result.replaceAll(&#39;stream:ack &#39;, &#39;&#39;);
     result = result.trim();
-    logger.info(&#39;ack received for streamId:${streamId}&#39;);
+    logger.finer(&#39;ack received for streamId:${streamId}&#39;);
 
     remoteSecondary.atLookUp.connection.getSocket().add(data);
     var streamResult = await remoteSecondary.atLookUp.messageListener

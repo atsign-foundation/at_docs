@@ -73,6 +73,7 @@
         <li><a href="../../at_client_mobile/AtClientService/getEncryptedKeys.html">getEncryptedKeys</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getEncryptionPrivateKey.html">getEncryptionPrivateKey</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getEncryptionPublicKey.html">getEncryptionPublicKey</a></li>
+        <li><a href="../../at_client_mobile/AtClientService/getKeyRestorePolicy.html">getKeyRestorePolicy</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getPrivateKey.html">getPrivateKey</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getPublicKey.html">getPublicKey</a></li>
         <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
@@ -99,6 +100,7 @@
             <span class="name ">authenticate</span>
 (<wbr><ol class="parameter-list"><li><span class="parameter" id="authenticate-param-atsign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">atsign</span>, </span></li>
 <li><span class="parameter" id="authenticate-param-cramSecret">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">cramSecret</span>, </span></li>
+<li><span class="parameter" id="authenticate-param-status"><span class="type-annotation">KeyRestoreStatus</span> <span class="parameter-name">status</span>, </span></li>
 <li><span class="parameter" id="authenticate-param-jsonData"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">jsonData</span>, </span></li>
 <li><span class="parameter" id="authenticate-param-decryptKey"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">decryptKey</span>}</span></li>
 </ol>)
@@ -112,7 +114,10 @@ if pkam is successful, encryption keys will be set for the user.</p>
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; authenticate(String atsign,
-    {String cramSecret, String jsonData, String decryptKey}) async {
+    {String cramSecret,
+    KeyRestoreStatus status,
+    String jsonData,
+    String decryptKey}) async {
   if (cramSecret == null) {
     await _decodeAndStoreToKeychain(atsign, jsonData, decryptKey);
     _atClientPreference.privateKey = await getPrivateKey(atsign);
@@ -124,7 +129,9 @@ if pkam is successful, encryption keys will be set for the user.</p>
     return result;
   }
   result = await _atClientAuthenticator.performInitialAuth(atsign,
-      cramSecret: cramSecret, pkamPrivateKey: _atClientPreference.privateKey);
+      cramSecret: cramSecret,
+      pkamPrivateKey: _atClientPreference.privateKey,
+      status: _status);
   if (result) {
     var privateKey = _atClientPreference.privateKey ??=
         await _keyChainManager.getPrivateKey(atsign);

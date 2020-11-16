@@ -57,20 +57,19 @@
         <li class="section-title"><a href="../../at_persistence_secondary_server/AtCompactionJob-class.html#constructors">Constructors</a></li>
         <li><a href="../../at_persistence_secondary_server/AtCompactionJob/AtCompactionJob.getInstance.html">getInstance</a></li>
     
-        <li class="section-title">
+        <li class="section-title inherited">
             <a href="../../at_persistence_secondary_server/AtCompactionJob-class.html#instance-properties">Properties</a>
         </li>
-        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/hashCode.html">hashCode</a></li>
-        <li><a href="../../at_persistence_secondary_server/AtCompactionJob/logger.html">logger</a></li>
-        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/runtimeType.html">runtimeType</a></li>
+        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.4/dart-core/Object/hashCode.html">hashCode</a></li>
+        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.4/dart-core/Object/runtimeType.html">runtimeType</a></li>
     
         <li class="section-title"><a href="../../at_persistence_secondary_server/AtCompactionJob-class.html#instance-methods">Methods</a></li>
-        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
         <li><a href="../../at_persistence_secondary_server/AtCompactionJob/scheduleCompactionJob.html">scheduleCompactionJob</a></li>
-        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/toString.html">toString</a></li>
+        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.4/dart-core/Object/toString.html">toString</a></li>
     
         <li class="section-title inherited"><a href="../../at_persistence_secondary_server/AtCompactionJob-class.html#operators">Operators</a></li>
-        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.2/dart-core/Object/operator_equals.html">operator ==</a></li>
+        <li class="inherited"><a href="https://api.dart.dev/stable/2.10.4/dart-core/Object/operator_equals.html">operator ==</a></li>
     
     
     
@@ -86,7 +85,7 @@
       <span class="returntype">void</span>
             <span class="name ">scheduleCompactionJob</span>
 (<wbr><ol class="parameter-list"><li><span class="parameter" id="scheduleCompactionJob-param-atCompactionConfig"><span class="type-annotation"><a href="https://pub.dev/documentation/at_commons/1.0.1/at_commons/AtCompactionConfig-class.html">AtCompactionConfig</a></span> <span class="parameter-name">atCompactionConfig</span>, </span></li>
-<li><span class="parameter" id="scheduleCompactionJob-param-atLogType"><span class="type-annotation"><a href="https://pub.dev/documentation/at_persistence_spec/1.0.1/at_persistence_spec/AtLogType-class.html">AtLogType</a></span> <span class="parameter-name">atLogType</span></span></li>
+<li><span class="parameter" id="scheduleCompactionJob-param-atLogType"><span class="type-annotation"><a href="../../at_persistence_secondary_server/AtLogType-class.html">AtLogType</a></span> <span class="parameter-name">atLogType</span></span></li>
 </ol>)
       
     </section>
@@ -95,14 +94,11 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">void scheduleCompactionJob(
     AtCompactionConfig atCompactionConfig, AtLogType atLogType) {
-  logger.finest(&#39;scheduleKeyExpireTask starting cron job.&#39;);
   var runFrequencyMins = atCompactionConfig.compactionFrequencyMins;
   var cron = Cron();
   cron.schedule(Schedule.parse(&#39;*&#47;${runFrequencyMins} * * * *&#39;), () async {
-    logger.finest(&#39;scheduleCompactionJob calling expireAll()&#39;);
     var compactionService = AtCompactionService.getInstance();
     await compactionService.executeCompaction(atCompactionConfig, atLogType);
-    logger.finest(&#39;scheduleCompactionJob executeCompaction completed&#39;);
   });
 }</code></pre>
     </section>

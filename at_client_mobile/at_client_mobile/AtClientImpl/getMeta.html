@@ -153,17 +153,10 @@ Future&lt;Metadata&gt; getMeta(AtKey atKey) async {
       isCached: isCached,
       namespaceAware: namespaceAware,
       operation: UPDATE_META);
-  getResult = _formatResult(getResult);
   if (getResult == null || getResult == &#39;null&#39;) {
     return null;
   }
-  try {
-    Map&lt;String, dynamic&gt; map = jsonDecode(getResult);
-    return _prepareMetadata(map, isPublic);
-  } on FormatException {
-    logger.severe(&#39;Unable to get metadata ${atKey.key}&#39;);
-  }
-  return null;
+  return _prepareMetadata(getResult, isPublic);
 }</code></pre>
     </section>
 

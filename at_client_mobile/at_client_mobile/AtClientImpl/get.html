@@ -173,20 +173,19 @@ Future&lt;AtValue&gt; get(AtKey atKey) async {
       sharedBy: AtUtils.formatAtSign(atKey.sharedBy),
       isPublic: isPublic,
       isCached: isCached,
-      namespaceAware: namespaceAware);
+      namespaceAware: namespaceAware,
+      operation: UPDATE_ALL);
 
-  &#47;&#47;var metadata = await getMeta(atKey);
   var atValue = AtValue();
-  getResult = _formatResult(getResult);
   if (getResult == null || getResult == &#39;null&#39;) {
     return atValue;
   }
   if (atKey.metadata != null &amp;&amp; atKey.metadata.isBinary) {
-    atValue.value = Base2e15.decode(getResult);
+    atValue.value = Base2e15.decode(getResult[&#39;data&#39;]);
   } else {
-    atValue.value = getResult;
+    atValue.value = getResult[&#39;data&#39;];
   }
-  &#47;&#47;atValue.metadata = metadata;
+  atValue.metadata = _prepareMetadata(getResult[&#39;metaData&#39;], isPublic);
   return atValue;
 }</code></pre>
     </section>

@@ -73,6 +73,7 @@
         <li><a href="../../at_client_mobile/AtClientService/getEncryptedKeys.html">getEncryptedKeys</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getEncryptionPrivateKey.html">getEncryptionPrivateKey</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getEncryptionPublicKey.html">getEncryptionPublicKey</a></li>
+        <li><a href="../../at_client_mobile/AtClientService/getKeyRestorePolicy.html">getKeyRestorePolicy</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getPrivateKey.html">getPrivateKey</a></li>
         <li><a href="../../at_client_mobile/AtClientService/getPublicKey.html">getPublicKey</a></li>
         <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
@@ -105,16 +106,16 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, String&gt;&gt; getEncryptedKeys(String atsign) async {
-  var aesEncryptedKeys={};
+  var aesEncryptedKeys = {};
   aesEncryptedKeys[&#39;aesPkamPublicKey&#39;] =
       await _keyChainManager.getValue(atsign, KEYCHAIN_AES_PKAM_PUBLIC_KEY);
   aesEncryptedKeys[&#39;aesPkamPrivateKey&#39;] =
       await _keyChainManager.getValue(atsign, KEYCHAIN_AES_PKAM_PRIVATE_KEY);
-  aesEncryptedKeys[&#39;aesEncryptPublicKey&#39;] =
-      await _keyChainManager.getValue(atsign, KEYCHAIN_AES_ENCRYPTION_PUBLIC_KEY);
-  aesEncryptedKeys[&#39;aesEncryptPrivateKey&#39;] =
-      await _keyChainManager.getValue(atsign, KEYCHAIN_AES_ENCRYPTION_PRIVATE_KEY);
-  return Map&lt;String,String&gt;.from(aesEncryptedKeys);
+  aesEncryptedKeys[&#39;aesEncryptPublicKey&#39;] = await _keyChainManager.getValue(
+      atsign, KEYCHAIN_AES_ENCRYPTION_PUBLIC_KEY);
+  aesEncryptedKeys[&#39;aesEncryptPrivateKey&#39;] = await _keyChainManager.getValue(
+      atsign, KEYCHAIN_AES_ENCRYPTION_PRIVATE_KEY);
+  return Map&lt;String, String&gt;.from(aesEncryptedKeys);
 }</code></pre>
     </section>
 

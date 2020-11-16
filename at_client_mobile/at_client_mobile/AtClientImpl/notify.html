@@ -159,8 +159,8 @@ Future&lt;bool&gt; notify(
     ..sharedWith = sharedWith
     ..value = value
     ..operation = operation;
-  if (sharedWith != null &amp;&amp; sharedWith != currentAtSign) {
-    if (value != null) {
+  if (value != null) {
+    if (sharedWith != null &amp;&amp; sharedWith != currentAtSign) {
       try {
         builder.value =
             await encryptionService.encrypt(atKey.key, value, sharedWith);
@@ -169,7 +169,9 @@ Future&lt;bool&gt; notify(
         return Future.error(AtClientException(
             errorCode, AtClientExceptionUtil.getErrorDescription(errorCode)));
       }
-      print(builder.value);
+    } else {
+      builder.value =
+          await encryptionService.encryptForSelf(atKey.key, value);
     }
   }
   if (metadata != null) {
